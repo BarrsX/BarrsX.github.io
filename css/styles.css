@@ -95,7 +95,7 @@ header a:hover {
 header a:focus {
   color: #3498db;
   text-decoration: none
-}
+} 
 
 header.active {
   display: block
@@ -108,7 +108,7 @@ header.sticky {
 
 .about-pic {
   border-radius: 50%;
-  width: 350px;
+  width: 300px;
   height: 400px;
 }
 
