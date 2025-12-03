@@ -465,36 +465,10 @@ footer {
 }
 
 #experience-timeline {
-  margin: 30px auto 0 auto;
+  margin: 40px auto 0 auto;
   position: relative;
-  max-width: 1000px
+  max-width: 900px;
 }
-
-#experience-timeline:before {
-  position: absolute;
-  content: '';
-  top: 0;
-  bottom: 0;
-  left: 303px;
-  right: auto;
-  height: 100%;
-  width: 3px;
-  background: #3498db;
-  z-index: 0
-}
-
-#experience-timeline:after {
-  position: absolute;
-  content: '';
-  width: 3px;
-  height: 40px;
-  background: #3498db;
-  background: linear-gradient(to bottom, #3498db, rgba(52, 152, 219, 0));
-  top: 100%;
-  left: 303px
-}
-
-/* Removed old vtimeline styles - now using simplified experience timeline */
 
 #education {
   padding: 50px 15px 20px 15px;
@@ -935,89 +909,196 @@ footer {
   }
 }
 
-/* Experience Timeline Styles */
+/* Experience Timeline Styles - Clean Redesign */
 #experience-timeline {
-  margin: 30px auto 0 auto;
-  position: relative;
-  max-width: 1000px;
-  padding: 0 20px
+  margin: 40px auto 0 auto;
+  max-width: 900px;
+  padding: 0 20px;
 }
 
-#experience-timeline div {
+.experience-item {
   background: #fff;
-  padding: 25px;
+  padding: 35px 40px;
   margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
   border: 1px solid #e6e6e6;
-  position: relative;
-  border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-  border-left: 4px solid #3498db
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#experience-timeline div[data-date]:after {
-  content: attr(data-date);
-  position: absolute;
-  right: 25px;
-  top: 25px;
-  font-weight: 500;
-  color: #3498db;
-  font-size: 0.9em;
-  background: #f8f9fa;
-  padding: 5px 10px;
-  border-radius: 4px;
-  border: 1px solid #3498db
+.experience-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
 }
 
-#experience-timeline div h3 {
-  font-size: 1.6em;
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f5;
+}
+
+.experience-title-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.experience-item h3 {
+  font-size: 1.7em;
   font-weight: 600;
   color: #374054;
-  margin: 0 0 8px 0
+  margin: 0 0 8px 0;
+  line-height: 1.2;
 }
 
-#experience-timeline div h4 {
-  font-size: 1.2em;
-  font-weight: 400;
+.experience-item h4 {
+  font-size: 1.25em;
+  font-weight: 500;
   color: #3498db;
-  margin: 0 0 8px 0
+  margin: 0 0 10px 0;
 }
 
-#experience-timeline div .experience-location {
-  font-size: 1em;
-  color: #7e8890;
-  margin-bottom: 20px;
-  font-weight: 300;
+.experience-meta {
   display: flex;
-  align-items: center
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
 }
 
-#experience-timeline div .experience-location:before {
+.experience-date {
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.9em;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  padding: 8px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.experience-location {
+  font-size: 0.95em;
+  color: #7e8890;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.experience-location:before {
   content: '📍';
-  margin-right: 8px;
-  font-size: 0.9em
+  font-size: 0.9em;
 }
 
-#experience-timeline div ul {
+.experience-item ul {
   margin: 0;
   padding: 0;
-  list-style: none
+  list-style: none;
+  display: grid;
+  gap: 14px;
 }
 
-#experience-timeline div ul li {
-  color: #74808a;
-  font-size: 0.95em;
-  margin-bottom: 12px;
-  line-height: 1.6;
+.experience-item ul li {
+  color: #5a6370;
+  font-size: 1em;
+  line-height: 1.7;
   position: relative;
-  padding-left: 20px
+  padding-left: 28px;
+  text-align: left;
 }
 
-#experience-timeline div ul li:before {
-  content: '▸';
+.experience-item ul li:before {
+  content: '';
   position: absolute;
   left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  background: #3498db;
+  border-radius: 50%;
+}
+
+/* Legacy support for old structure */
+#experience-timeline > div[data-date] {
+  background: #fff;
+  padding: 35px 40px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  border: 1px solid #e6e6e6;
+  text-align: left;
+}
+
+#experience-timeline > div[data-date] h3 {
+  font-size: 1.7em;
+  font-weight: 600;
+  color: #374054;
+  margin: 0 0 8px 0;
+}
+
+#experience-timeline > div[data-date] h4 {
+  font-size: 1.25em;
+  font-weight: 500;
   color: #3498db;
-  font-weight: bold
+  margin: 0 0 10px 0;
+}
+
+#experience-timeline > div[data-date] .experience-location {
+  font-size: 0.95em;
+  color: #7e8890;
+  margin-bottom: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #f8f9fa;
+  border-radius: 20px;
+}
+
+#experience-timeline > div[data-date] .experience-location:before {
+  content: '📍';
+  font-size: 0.9em;
+}
+
+#experience-timeline > div[data-date]:after {
+  content: attr(data-date);
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.9em;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+#experience-timeline > div[data-date] ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 14px;
+}
+
+#experience-timeline > div[data-date] ul li {
+  color: #5a6370;
+  font-size: 1em;
+  line-height: 1.7;
+  position: relative;
+  padding-left: 28px;
+}
+
+#experience-timeline > div[data-date] ul li:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  background: #3498db;
+  border-radius: 50%;
 }
 
 /* Skills Container Styles */
@@ -1281,31 +1362,40 @@ footer {
 /* Responsive Styles for New Components */
 @media only screen and (max-width: 750px) {
   #experience-timeline {
-    padding: 0 15px
+    padding: 0 15px;
   }
   
-  #experience-timeline div {
-    padding: 20px
+  .experience-item,
+  #experience-timeline > div[data-date] {
+    padding: 25px 20px;
   }
 
-  #experience-timeline div[data-date]:after {
+  .experience-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .experience-meta {
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .experience-item h3,
+  #experience-timeline > div[data-date] h3 {
+    font-size: 1.4em;
+  }
+
+  .experience-item h4,
+  #experience-timeline > div[data-date] h4 {
+    font-size: 1.1em;
+  }
+
+  #experience-timeline > div[data-date]:after {
     position: static;
-    display: block;
-    margin-bottom: 10px;
-    text-align: left;
-    background: none;
-    padding: 0;
-    border: none;
-    font-weight: 600;
-    font-size: 0.95em
-  }
-
-  #experience-timeline div h3 {
-    font-size: 1.4em
-  }
-
-  #experience-timeline div h4 {
-    font-size: 1.1em
+    display: inline-block;
+    margin-bottom: 15px;
   }
 
   .skills-container {
